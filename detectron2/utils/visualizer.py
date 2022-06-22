@@ -408,10 +408,10 @@ class Visualizer:
             colors = [
                 self._jitter([x / 255 for x in self.metadata.thing_colors[c]]) for c in classes
             ]
-            alpha = 0.8
+            alpha = 1
         else:
             colors = None
-            alpha = 0.5
+            alpha = 1
 
         if self._instance_mode == ColorMode.IMAGE_BW:
             self.output.reset_image(
@@ -732,7 +732,7 @@ class Visualizer:
                     * self._default_font_size
                 )
                 self.draw_text(
-                    labels[i],
+                    None,#labels[i],
                     text_pos,
                     color=lighter_color,
                     horizontal_alignment=horiz_align,
