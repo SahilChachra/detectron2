@@ -426,10 +426,10 @@ class Visualizer:
         self.overlay_instances(
             masks=masks,
             boxes=boxes,
-            labels=labels,
+            labels=None,
             keypoints=keypoints,
             assigned_colors=colors,
-            alpha=alpha,
+            alpha=1,
         )
         return self.output
 
@@ -462,9 +462,9 @@ class Visualizer:
             self.draw_binary_mask(
                 binary_mask,
                 color=mask_color,
-                edge_color=_OFF_WHITE,
-                text=text,
-                alpha=alpha,
+                edge_color=None,
+                text=None,
+                alpha=1,
                 area_threshold=area_threshold,
             )
         return self.output
@@ -502,9 +502,9 @@ class Visualizer:
             self.draw_binary_mask(
                 mask,
                 color=mask_color,
-                edge_color=_OFF_WHITE,
-                text=text,
-                alpha=alpha,
+                edge_color=None,
+                text=None,
+                alpha=1,
                 area_threshold=area_threshold,
             )
 
@@ -1051,6 +1051,9 @@ class Visualizer:
         Returns:
             output (VisImage): image object with mask drawn.
         """
+        # EDITED
+        text=None
+        alpha=1
         if color is None:
             color = random_color(rgb=True, maximum=1)
         color = mplc.to_rgb(color)
